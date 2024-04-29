@@ -1,7 +1,11 @@
 package pl.wit;
 
+import pl.wit.Windows.MainWindow;
+
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        MainWindow mainWindow = new MainWindow();
     }
 }
