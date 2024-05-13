@@ -4,8 +4,13 @@ import pl.wit.Components.ButtonComponent;
 import pl.wit.Components.LabelComponent;
 import pl.wit.Components.TextBoxComponent;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
+import java.io.File;
 
 public class MainWindow extends JFrame {
     private JPanel panel;
@@ -29,21 +34,92 @@ public class MainWindow extends JFrame {
     private LabelComponent filesToCopyLabel;
     private LabelComponent filesFoundLabel;
     private LabelComponent filesSizeLabel;
-
     private ButtonComponent startButtonComponent;
+
+    public ButtonComponent getDestinationButtonComponent() {
+        return destinationButtonComponent;
+    }
+
+    public void setDestinationButtonComponent(ButtonComponent destinationButtonComponent) {
+        this.destinationButtonComponent = destinationButtonComponent;
+    }
+
+    public LabelComponent getDestinationPathLabelComponent() {
+        return destinationPathLabelComponent;
+    }
+
+    public void setDestinationPathLabelComponent(LabelComponent destinationPathLabelComponent) {
+        this.destinationPathLabelComponent = destinationPathLabelComponent;
+    }
+
+    public ButtonComponent getSourceButtonComponent() {
+        return sourceButtonComponent;
+    }
+
+    public void setSourceButtonComponent(ButtonComponent sourceButtonComponent) {
+        this.sourceButtonComponent = sourceButtonComponent;
+    }
+
+    public LabelComponent getSourcePathLabelComponent() {
+        return sourcePathLabelComponent;
+    }
+
+    public void setSourcePathLabelComponent(LabelComponent sourcePathLabelComponent) {
+        this.sourcePathLabelComponent = sourcePathLabelComponent;
+    }
+
+    public TextBoxComponent getFilterTextBoxComponent() {
+        return filterTextBoxComponent;
+    }
+
+    public void setFilterTextBoxComponent(TextBoxComponent filterTextBoxComponent) {
+        this.filterTextBoxComponent = filterTextBoxComponent;
+    }
+
+    public LabelComponent getFilesToCopyLabel() {
+        return filesToCopyLabel;
+    }
+
+    public void setFilesToCopyLabel(LabelComponent filesToCopyLabel) {
+        this.filesToCopyLabel = filesToCopyLabel;
+    }
+
+    public LabelComponent getFilesFoundLabel() {
+        return filesFoundLabel;
+    }
+
+    public void setFilesFoundLabel(LabelComponent filesFoundLabel) {
+        this.filesFoundLabel = filesFoundLabel;
+    }
+
+    public LabelComponent getFilesSizeLabel() {
+        return filesSizeLabel;
+    }
+
+    public void setFilesSizeLabel(LabelComponent filesSizeLabel) {
+        this.filesSizeLabel = filesSizeLabel;
+    }
+
+    public ButtonComponent getStartButtonComponent() {
+        return startButtonComponent;
+    }
+
+    public void setStartButtonComponent(ButtonComponent startButtonComponent) {
+        this.startButtonComponent = startButtonComponent;
+    }
 
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
         this.setSize(300, 435); // sets dimensions of frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit out of application
-        this.setResizable(true); // prevent frame from being resized
-        this.setVisible(true); // make frame visible
+        this.setResizable(false); // prevent frame from being resized
         this.setLayout(new BorderLayout());
+        init();
 
         ImageIcon image = new ImageIcon("me.jpg");
         this.setIconImage(image.getImage());
 
-        init();
+        this.setVisible(true); // make frame visible
     }
 
     private void init() {
@@ -81,6 +157,8 @@ public class MainWindow extends JFrame {
         sourcePanel.add(sourceLabelComponent.createLabel("Source Directory"));
         sourcePanel.add(sourceButtonComponent.createButton("Browse..."));
         sourcePanel.add(sourcePathLabelComponent.createLabel("Source Path..."));
+
+        sourceButtonComponent.getButton().addActionListener(filePathActionListener(sourcePathLabelComponent));
     }
 
     private void destinationPanelInit() {
@@ -96,6 +174,8 @@ public class MainWindow extends JFrame {
         destinationPanel.add(destinationLabelComponent.createLabel("Destination Directory"));
         destinationPanel.add(destinationButtonComponent.createButton("Browse..."));
         destinationPanel.add(destinationPathLabelComponent.createLabel("Destination Path..."));
+
+        destinationButtonComponent.getButton().addActionListener(filePathActionListener(destinationPathLabelComponent));
     }
 
     private void maskFilterPanelInit() {
@@ -133,5 +213,31 @@ public class MainWindow extends JFrame {
         startPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         startButtonComponent = new ButtonComponent(new Dimension(200, 30), "startButton");
         startPanel.add(startButtonComponent.createButton("Start"));
+
+        startButtonComponent.getButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Peciuniu tutaj kod do startowania
+            }
+        });
     }
+
+    private ActionListener filePathActionListener(LabelComponent labelPathComponent) {
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser();
+                chooser.setDialogTitle("Wybierz folder");
+                chooser.setFileSystemView(FileSystemView.getFileSystemView());
+
+                int result = chooser.showOpenDialog(null);
+
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = chooser.getSelectedFile();
+                    labelPathComponent.getLabel().setText(selectedFile.getAbsolutePath());
+                }
+            }
+        };
+    }
+
 }
