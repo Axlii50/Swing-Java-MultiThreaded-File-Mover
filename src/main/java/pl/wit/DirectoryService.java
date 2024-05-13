@@ -2,30 +2,34 @@ package pl.wit;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
 public class DirectoryService {
 
-    public List<String> getDirectoryStructure(String path) {
+    public Node getDirectoryStructure(String path) throws IllegalArgumentException {
         File folder = new File(path);
         if (!folder.exists() || !folder.isDirectory()) {
             throw new IllegalArgumentException("Nieprawidłowa ścieżka: " + path);
         }
 
-        List<String> directoryStructure = new ArrayList<>();
-        addDirectoryToList(directoryStructure, folder);
-        return directoryStructure;
+        Node root = new Node(folder.getName());
+        addDirectoryToTree(root, folder);
+        return root;
     }
 
-    private void addDirectoryToList(List<String> directoryStructure, File folder) {
-        directoryStructure.add(folder.getAbsolutePath());
+    private void addDirectoryToTree(Node parent, File folder) {
         for (File file : folder.listFiles()) {
+            Node child = new Node(file.getName());
             if (file.isDirectory()) {
-                addDirectoryToList(directoryStructure, file);
+                parent.addChild(child);
+                addDirectoryToTree(child, file);
             } else {
-                directoryStructure.add(file.getAbsolutePath());
+                parent.addChild(new Leaf(file.getName()));
             }
         }
     }
 }
+
+
