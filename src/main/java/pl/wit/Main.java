@@ -17,44 +17,15 @@ public class Main {
 
         window = new MainWindow();
 
-        window.setSourceButtonActionListener(SourceButtonListener());
-        window.setDestinationButtonActionListener(DestinationButtonListener());
+        window.setStartButtonActionListener(StartButtonListener());
     }
 
-    private static ActionListener SourceButtonListener() {
+    private static ActionListener StartButtonListener() {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.setDialogTitle("Wybierz folder");
-                chooser.setFileSystemView(FileSystemView.getFileSystemView());
-
-                int result = chooser.showOpenDialog(null);
-
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = chooser.getSelectedFile();
-                    window.getSourcePathLabelComponent().getLabel().setText(selectedFile.getAbsolutePath());
-                    Source = selectedFile.getAbsolutePath();
-                }
-            }
-        };
-    }
-
-    private static ActionListener DestinationButtonListener() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.setDialogTitle("Wybierz folder");
-                chooser.setFileSystemView(FileSystemView.getFileSystemView());
-
-                int result = chooser.showOpenDialog(null);
-
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = chooser.getSelectedFile();
-                    window.getDestinationPathLabelComponent().getLabel().setText(selectedFile.getAbsolutePath());
-                    Destination = selectedFile.getAbsolutePath();
-                }
+                Source = window.getSourcePathString();
+                Destination = window.getDestinationPathString();
             }
         };
     }

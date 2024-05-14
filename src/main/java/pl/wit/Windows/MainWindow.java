@@ -108,6 +108,14 @@ public class MainWindow extends JFrame {
         this.startButtonComponent = startButtonComponent;
     }
 
+    public String getSourcePathString() {
+        return sourcePathLabelComponent.getLabel().getText();
+    }
+
+    public String getDestinationPathString() {
+        return destinationPathLabelComponent.getLabel().getText();
+    }
+
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
         this.setSize(300, 435); // sets dimensions of frame
