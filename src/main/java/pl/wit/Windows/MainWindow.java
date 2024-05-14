@@ -161,6 +161,10 @@ public class MainWindow extends JFrame {
         sourceButtonComponent.getButton().addActionListener(filePathActionListener(sourcePathLabelComponent));
     }
 
+    public void setSourceButtonActionListener(ActionListener actionListener) {
+        sourceButtonComponent.getButton().addActionListener(actionListener);
+    }
+
     private void destinationPanelInit() {
         destinationPanel = new JPanel();
         destinationPanel.setBackground(Color.WHITE);
@@ -176,6 +180,10 @@ public class MainWindow extends JFrame {
         destinationPanel.add(destinationPathLabelComponent.createLabel("Destination Path..."));
 
         destinationButtonComponent.getButton().addActionListener(filePathActionListener(destinationPathLabelComponent));
+    }
+
+    public void setDestinationButtonActionListener(ActionListener actionListener) {
+        destinationButtonComponent.getButton().addActionListener(actionListener);
     }
 
     private void maskFilterPanelInit() {
@@ -213,13 +221,10 @@ public class MainWindow extends JFrame {
         startPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         startButtonComponent = new ButtonComponent(new Dimension(200, 30), "startButton");
         startPanel.add(startButtonComponent.createButton("Start"));
+    }
 
-        startButtonComponent.getButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Peciuniu tutaj kod do startowania
-            }
-        });
+    public void setStartButtonActionListener(ActionListener actionListener) {
+        startButtonComponent.getButton().addActionListener(actionListener);
     }
 
     private ActionListener filePathActionListener(LabelComponent labelPathComponent) {
