@@ -242,6 +242,7 @@ public class MainWindow extends JFrame {
                 JFileChooser chooser = new JFileChooser();
                 chooser.setDialogTitle("Wybierz folder");
                 chooser.setFileSystemView(FileSystemView.getFileSystemView());
+                chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
                 int result = chooser.showOpenDialog(null);
 

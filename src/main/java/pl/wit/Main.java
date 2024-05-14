@@ -26,7 +26,12 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 Source = window.getSourcePathString();
                 Destination = window.getDestinationPathString();
+                Node structure = GetFolderStructure();
             }
         };
+    }
+
+    private static Node GetFolderStructure(){
+        return new DirectoryService().getDirectoryStructure(Source,".*");
     }
 }
