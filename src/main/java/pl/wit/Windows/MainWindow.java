@@ -116,6 +116,10 @@ public class MainWindow extends JFrame {
         return destinationPathLabelComponent.getLabel().getText();
     }
 
+    public String getRegexExpression() {
+        return filterTextBoxComponent.getTextbox().getText();
+    }
+
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
         this.setSize(300, 435); // sets dimensions of frame
@@ -204,7 +208,7 @@ public class MainWindow extends JFrame {
         filterTextBoxComponent = new TextBoxComponent(new Dimension(190, 30), "filterTextBox");
 
         maskFilterPanel.add(filterLabelComponent.createLabel("Mask Filter"));
-        maskFilterPanel.add(filterTextBoxComponent.createTextBox(""));
+        maskFilterPanel.add(filterTextBoxComponent.createTextBox(".*"));
     }
 
     private void infoPanelInit() {

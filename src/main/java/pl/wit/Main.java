@@ -12,6 +12,8 @@ import java.io.File;
 public class Main {
     private static String Source = null;
     private static String Destination = null;
+    private static String Regex = null;
+
     static MainWindow window;
     public static void main(String[] args) {
 
@@ -26,6 +28,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 Source = window.getSourcePathString();
                 Destination = window.getDestinationPathString();
+                Regex = window.getRegexExpression();
                 Node structure = GetFolderStructure();
             }
         };
