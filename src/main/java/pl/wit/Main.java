@@ -38,6 +38,6 @@ public class Main {
     }
 
     private static Node GetFolderStructure(){
-        return new DirectoryService().getDirectoryStructure(Source,".*");
+        return new DirectoryService().getDirectoryStructure(Source, Regex);
     }
 }
