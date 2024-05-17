@@ -12,10 +12,12 @@ import java.io.File;
 public class Main {
     private static String Source = null;
     private static String Destination = null;
+    private static String Regex = null;
+
     private static ThreadService threadService = null;
     static MainWindow window;
     public static void main(String[] args) {
-        threadService = new ThreadService(Runtime.getRuntime().availableProcessors());
+
         window = new MainWindow();
 
         window.setStartButtonActionListener(StartButtonListener());
@@ -27,6 +29,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 Source = window.getSourcePathString();
                 Destination = window.getDestinationPathString();
+                Regex = window.getRegexExpression();
 
                 Node structure = GetFolderStructure();
                 threadService.CopyFiles(structure, Destination);
