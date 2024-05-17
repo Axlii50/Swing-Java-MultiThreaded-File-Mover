@@ -13,19 +13,20 @@ public class DirectoryService {
             throw new IllegalArgumentException("Nieprawidłowa ścieżka: " + path);
         }
 
-        Node root = new Node(folder.getName());
+        Node root = new Node(folder.getName(), folder.getPath());
         addDirectoryToTree(root, folder, regex);
         return root;
     }
 
     public void addDirectoryToTree(Node parent, File folder, String regex) {
         for (File file : folder.listFiles()) {
-            Node child = new Node(file.getName());
+            Node child = new Node(file.getName(),file.getPath());
             if (file.isDirectory()) {
                 parent.addChild(child);
                 addDirectoryToTree(child, file, regex);
             }  else if (file.getName().matches(regex)) {
-                parent.addChild(new Leaf(file.getName()));
+                parent.addChild(new Leaf(file.getName(),file.getPath()));
+
             }
         }
     }

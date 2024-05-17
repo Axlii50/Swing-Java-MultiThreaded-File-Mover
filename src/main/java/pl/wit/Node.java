@@ -7,9 +7,11 @@ import java.util.List;
 public class Node {
     private String name;
     private List<Node> children;
+    private String path;
 
-    public Node(String name) {
+    public Node(String name, String path) {
         this.name = name;
+        this.path = path;
         this.children = new ArrayList<>();
     }
 
@@ -24,11 +26,15 @@ public class Node {
     public void addChild(Node child) {
         children.add(child);
     }
+
+    public String getPath() {
+        return path;
+    }
 }
 
 class Leaf extends Node {
-    public Leaf(String name) {
-        super(name);
+    public Leaf(String name, String path) {
+        super(name, path);
     }
 
     @Override
