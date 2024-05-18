@@ -120,6 +120,37 @@ public class MainWindow extends JFrame {
         return filterTextBoxComponent.getTextbox().getText();
     }
 
+    public String getFilesToCopyLabelString() {
+        return filesToCopyLabel.getLabel().getText();
+    }
+
+    public String getFilesFoundLabelString() {
+        return filesFoundLabel.getLabel().getText();
+    }
+
+    public String getFilesSizeLabelString() {
+        return filesSizeLabel.getLabel().getText();
+    }
+
+    /**
+     *
+     * Default: Strings:
+     * filesToCopy: Files To Copy: 0
+     * filesFound: Files Found: 0
+     * filesSize: Files size: 0
+     */
+    public void setFilesToCopyLabelString(String str) {
+        filesToCopyLabel.getLabel().setText(str);
+    }
+
+    public void setFilesFoundLabelString(String str) {
+        filesFoundLabel.getLabel().setText(str);
+    }
+
+    public void setFilesSizeLabelString(String str) {
+        filesSizeLabel.getLabel().setText(str);
+    }
+
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
         this.setSize(300, 435); // sets dimensions of frame
