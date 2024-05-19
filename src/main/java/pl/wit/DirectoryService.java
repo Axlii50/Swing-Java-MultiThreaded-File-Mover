@@ -1,9 +1,6 @@
 package pl.wit;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class DirectoryService {
 
@@ -18,8 +15,13 @@ public class DirectoryService {
         return root;
     }
 
-    public void addDirectoryToTree(Node parent, File folder, String regex) {
-        for (File file : folder.listFiles()) {
+    public void addDirectoryToTree(Node parent, File folder, String regex) throws IllegalArgumentException {
+        File[] files = folder.listFiles();
+
+        if (files == null)
+            throw new IllegalArgumentException("There are no files in " + folder.getPath());
+
+        for (File file : files) {
             Node child = new Node(file.getName(),file.getPath());
             if (file.isDirectory()) {
                 parent.addChild(child);
