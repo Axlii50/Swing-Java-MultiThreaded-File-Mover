@@ -16,6 +16,7 @@ public class FileService implements Runnable {
         this.fileStructure = fileStructure;
         this.destination = destination;
         this.executor = executor;
+
     }
 
     @Override

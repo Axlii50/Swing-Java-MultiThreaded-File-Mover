@@ -19,6 +19,7 @@ public class MainWindow extends JFrame {
     private JPanel maskFilterPanel;
     private JPanel infoPanel;
     private JPanel startPanel;
+    private JPanel errorPanel;
 
     private LabelComponent sourceLabelComponent;
     private ButtonComponent sourceButtonComponent;
@@ -34,7 +35,18 @@ public class MainWindow extends JFrame {
     private LabelComponent filesToCopyLabel;
     private LabelComponent filesFoundLabel;
     private LabelComponent filesSizeLabel;
+
+    private LabelComponent errorLabelComponent;
+
     private ButtonComponent startButtonComponent;
+
+    public LabelComponent getErrorLabelComponent() {
+        return errorLabelComponent;
+    }
+
+    public void setErrorLabelComponent(LabelComponent errorLabelComponent) {
+        this.errorLabelComponent = errorLabelComponent;
+    }
 
     public ButtonComponent getDestinationButtonComponent() {
         return destinationButtonComponent;
@@ -132,6 +144,10 @@ public class MainWindow extends JFrame {
         return filesSizeLabel.getLabel().getText();
     }
 
+    public String getErrorLabelString() {
+        return errorLabelComponent.getLabel().getText();
+    }
+
     /**
      *
      * Default: Strings:
@@ -151,9 +167,13 @@ public class MainWindow extends JFrame {
         filesSizeLabel.getLabel().setText(str);
     }
 
+    public void setErrorLabelString(String str) {
+        errorLabelComponent.getLabel().setText(str);
+    }
+
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
-        this.setSize(300, 435); // sets dimensions of frame
+        this.setSize(300, 465); // sets dimensions of frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit out of application
         this.setResizable(false); // prevent frame from being resized
         this.setLayout(new BorderLayout());
@@ -170,6 +190,7 @@ public class MainWindow extends JFrame {
         destinationPanelInit();
         maskFilterPanelInit();
         infoPanelInit();
+        errorPanelInit();
         startPanelInit();
         mainPanelInit();
     }
@@ -184,6 +205,7 @@ public class MainWindow extends JFrame {
         panel.add(destinationPanel);
         panel.add(maskFilterPanel);
         panel.add(infoPanel);
+        panel.add(errorPanel);
         panel.add(startPanel);
     }
 
@@ -235,17 +257,17 @@ public class MainWindow extends JFrame {
         maskFilterPanel.setPreferredSize(new Dimension(300, 50));
         maskFilterPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        filterLabelComponent = new LabelComponent(new Dimension(new Dimension(70, 30)), "filterLabel");
-        filterTextBoxComponent = new TextBoxComponent(new Dimension(190, 30), "filterTextBox");
+        filterLabelComponent = new LabelComponent(new Dimension(new Dimension(120, 30)), "filterLabel");
+        filterTextBoxComponent = new TextBoxComponent(new Dimension(140, 30), "filterTextBox");
 
-        maskFilterPanel.add(filterLabelComponent.createLabel("Mask Filter"));
+        maskFilterPanel.add(filterLabelComponent.createLabel("Mask Filter (regex)"));
         maskFilterPanel.add(filterTextBoxComponent.createTextBox(".*"));
     }
 
     private void infoPanelInit() {
         infoPanel = new JPanel();
         infoPanel.setBackground(Color.WHITE);
-        infoPanel.setPreferredSize(new Dimension(300, 80));
+        infoPanel.setPreferredSize(new Dimension(300, 70));
         infoPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         filesToCopyLabel = new LabelComponent(new Dimension(new Dimension(140, 30)), "filesToCopyLabel");
@@ -257,12 +279,25 @@ public class MainWindow extends JFrame {
         infoPanel.add(filesSizeLabel.createLabel("Files Size: 0"));
     }
 
+    private void errorPanelInit() {
+        errorPanel = new JPanel();
+        errorPanel.setBackground(Color.WHITE);
+        errorPanel.setPreferredSize(new Dimension(300, 30));
+        errorPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        errorLabelComponent = new LabelComponent(new Dimension(new Dimension(285, 25)), "errorLabel");
+
+        errorPanel.add(errorLabelComponent.createLabel("Error"));
+    }
+
     private void startPanelInit() {
         startPanel = new JPanel();
         startPanel.setBackground(Color.WHITE);
         startPanel.setPreferredSize(new Dimension(300, 40));
         startPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
         startButtonComponent = new ButtonComponent(new Dimension(200, 30), "startButton");
+
         startPanel.add(startButtonComponent.createButton("Start"));
     }
 
