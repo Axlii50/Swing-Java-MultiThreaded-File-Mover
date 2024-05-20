@@ -32,7 +32,7 @@ public class Main {
 
                 try{
                     Node structure = GetFolderStructure();
-                    threadService.CopyFiles(structure, Destination);
+                    //threadService.CopyFiles(structure, Destination);
                 }catch(IllegalArgumentException exp) {
                     window.setErrorLabelString(exp.getMessage());
                     window.setErrorLabelVisible(true);

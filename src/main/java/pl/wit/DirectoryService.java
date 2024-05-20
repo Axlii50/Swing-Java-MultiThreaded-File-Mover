@@ -1,6 +1,7 @@
 package pl.wit;
 
 import java.io.File;
+import java.util.regex.Pattern;
 
 public class DirectoryService {
 
@@ -21,13 +22,16 @@ public class DirectoryService {
         if (files == null)
             throw new IllegalArgumentException("There are no files in " + folder.getPath());
 
+        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+
         for (File file : files) {
             Node child = new Node(file.getName(),file.getPath());
             if (file.isDirectory()) {
                 parent.addChild(child);
                 addDirectoryToTree(child, file, regex);
-            }  else if (file.getName().matches(regex)) {
+            }  else if (pattern.matcher(file.getName()).find()) {
                 parent.addChild(new Leaf(file.getName(),file.getPath()));
+                System.out.println(file.getName());
 
             }
         }
