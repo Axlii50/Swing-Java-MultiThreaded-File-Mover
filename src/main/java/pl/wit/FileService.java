@@ -37,10 +37,6 @@ public class FileService implements Runnable {
         }
     }
 
-    private String buildDestinationPath(String destinationPath, String path) {
-        return String.format("%s/%s", destinationPath, path);
-    }
-
     private void createDirectory(String path) {
         try {
             Files.createDirectories(Paths.get(path));
