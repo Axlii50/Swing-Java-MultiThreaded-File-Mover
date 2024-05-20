@@ -20,7 +20,7 @@ public class DirectoryService {
         File[] files = folder.listFiles();
 
         if (files == null)
-            throw new IllegalArgumentException("There are no files in " + folder.getPath());
+            throw new IllegalArgumentException("Nie ma plików w: " + folder.getPath());
 
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
 
