@@ -25,17 +25,16 @@ class ThreadServiceTest {
 
         thread.CopyFiles(structure,newDirectory);
 
-      try{ newStruct = directory.getDirectoryStructure(newDirectory,".*");}
-      catch(IllegalArgumentException ex)
-      {
-          ex1 = ex;
-      }
+        try{ newStruct = directory.getDirectoryStructure(newDirectory,".*");}
+        catch(IllegalArgumentException ex)
+        {
+            ex1 = ex;
+        }
 
         //Assert
 
         assertEquals(structure.getChildren().size(), newStruct.getChildren().size());
-        assertEquals(newStruct.getPath(), newDirectory.replace("/","\\")); // podmiana ze względu na różnicę między przekazywanym stringiem a tworzoną ścieżką,
-        //różnica wynika ze specyfiki języka i guess.
+        assertEquals(newStruct.getPath(), newDirectory.replace("/","\\")); //podmiana ze względu na interpretowanie ścieżki podawanej w stringu
         assertNull(ex1);
     }
 }
