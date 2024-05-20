@@ -13,9 +13,9 @@ public class Main {
     private static String Source = null;
     private static String Destination = null;
     private static String Regex = null;
-
     private static ThreadService threadService = null;
     static MainWindow window;
+
     public static void main(String[] args) {
         threadService = new ThreadService(Runtime.getRuntime().availableProcessors());
         window = new MainWindow();
@@ -33,10 +33,12 @@ public class Main {
                 try{
                     Node structure = GetFolderStructure();
                     threadService.CopyFiles(structure, Destination);
-                }catch(IllegalArgumentException exp){
+                }catch(IllegalArgumentException exp) {
                     window.setErrorLabelString(exp.getMessage());
                     window.setErrorLabelVisible(true);
                 }
+
+                threadService.Shutdown();
             }
         };
     }
