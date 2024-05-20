@@ -120,6 +120,10 @@ public class MainWindow extends JFrame {
         this.startButtonComponent = startButtonComponent;
     }
 
+    public void setErrorLabelVisible(boolean errorLabelVisible) {
+        errorLabelComponent.getLabel().setVisible(errorLabelVisible);
+    }
+
     public String getSourcePathString() {
         return sourcePathLabelComponent.getLabel().getText();
     }
@@ -288,6 +292,7 @@ public class MainWindow extends JFrame {
         errorLabelComponent = new LabelComponent(new Dimension(new Dimension(285, 25)), "errorLabel");
 
         errorPanel.add(errorLabelComponent.createLabel("Error"));
+        errorLabelComponent.getLabel().setVisible(false);
     }
 
     private void startPanelInit() {
