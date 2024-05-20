@@ -31,8 +31,6 @@ public class DirectoryService {
                 addDirectoryToTree(child, file, regex);
             }  else if (pattern.matcher(file.getName()).find()) {
                 parent.addChild(new Leaf(file.getName(),file.getPath()));
-                System.out.println(file.getName());
-
             }
         }
     }
