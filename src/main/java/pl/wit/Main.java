@@ -30,8 +30,13 @@ public class Main {
                 Destination = window.getDestinationPathString();
                 Regex = window.getRegexExpression();
 
-                Node structure = GetFolderStructure();
-                threadService.CopyFiles(structure, Destination);
+                try{
+                    Node structure = GetFolderStructure();
+                    threadService.CopyFiles(structure, Destination);
+                }catch(IllegalArgumentException exp){
+                    window.setErrorLabelString(exp.getMessage());
+                    window.setErrorLabelVisible(true);
+                }
             }
         };
     }

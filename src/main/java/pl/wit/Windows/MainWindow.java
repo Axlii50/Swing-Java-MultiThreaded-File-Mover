@@ -291,7 +291,9 @@ public class MainWindow extends JFrame {
 
         errorLabelComponent = new LabelComponent(new Dimension(new Dimension(285, 25)), "errorLabel");
 
+
         errorPanel.add(errorLabelComponent.createLabel("Error"));
+        errorLabelComponent.getLabel().setForeground(Color.RED);
         errorLabelComponent.getLabel().setVisible(false);
     }
 
