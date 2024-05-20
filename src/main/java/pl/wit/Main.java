@@ -19,7 +19,6 @@ public class Main {
     public static void main(String[] args) {
         threadService = new ThreadService(Runtime.getRuntime().availableProcessors());
         window = new MainWindow();
-
         window.setStartButtonActionListener(StartButtonListener());
     }
 
