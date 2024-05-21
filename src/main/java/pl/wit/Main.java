@@ -97,6 +97,7 @@ public class Main {
                      */
                     threadService.CopyFiles(structure, Destination);
                 } catch (IllegalArgumentException exp) {
+
                     /**
                      * Wyświetlanie komunikatu o błędzie użytkownika
                      */
@@ -106,6 +107,9 @@ public class Main {
                     return;
                 }
 
+                /**
+                 * Wyświetlanie komunikatu o skończeniu kopiowania
+                 */
                 window.setErrorLabelString("Program skonczył kopiować");
                 window.setErrorLabelColor(Color.GREEN);
                 window.setErrorLabelVisible(true);
