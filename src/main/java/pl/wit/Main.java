@@ -1,13 +1,14 @@
 package pl.wit;
 
-import pl.wit.Components.LabelComponent;
 import pl.wit.Windows.MainWindow;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileSystemView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+
+
+/**
+ * Klasa główna projektu
+ */
 
 public class Main {
     private static String Source = null;
@@ -25,6 +26,7 @@ public class Main {
     private static ActionListener StartButtonListener() {
         return new ActionListener() {
             @Override
+
             public void actionPerformed(ActionEvent e) {
                 Source = window.getSourcePathString();
                 Destination = window.getDestinationPathString();
@@ -32,7 +34,9 @@ public class Main {
 
                 try{
                     Node structure = GetFolderStructure();
-                    //threadService.CopyFiles(structure, Destination);
+
+                    // kopiowanie
+                    threadService.CopyFiles(structure, Destination);
                 }catch(IllegalArgumentException exp) {
                     window.setErrorLabelString(exp.getMessage());
                     window.setErrorLabelVisible(true);
