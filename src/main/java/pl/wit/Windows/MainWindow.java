@@ -12,6 +12,10 @@ import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.io.File;
 
+/**
+ * Klasa MainWindow odpowiada za główne okno aplikacji, w której użytkownik może wybrać
+ * źródłowy folder, docelowy folder, ustawić filtr maski oraz uruchomić proces kopiowania plików
+ */
 public class MainWindow extends JFrame {
     private JPanel panel;
     private JPanel sourcePanel;
