@@ -60,7 +60,7 @@ public class DirectoryService {
      * Dodawanie katalogów i plików do drzewa struktury katalogów
      *
      * @param parent węzeł rodzica, do którego dodawane są dzieci
-     * @param folder katalog do przetworzenia
+     * @param folder mapowany katalog do struktury (parent)
      * @param regex  wyrażenie regularne do filtrowania plików
      * @throws IllegalArgumentException rzucenie wyjątku jeżeli nie ma plików w katalogu
      */

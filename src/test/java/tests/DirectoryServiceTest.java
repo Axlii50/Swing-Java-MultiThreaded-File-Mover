@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DirectoryServiceTest {
 
     /**
-     * Testowanie metody getDirectoryStructureCorrectPath z poprawną ściezką
+     * Testowanie metody getDirectoryStructure z poprawną ściezką
      */
     @Test
     public void getDirectoryStructureCorrectPathTest() {
@@ -45,14 +45,13 @@ public class DirectoryServiceTest {
      */
     @Test
     public void getDirectoryStructureFailurePathTest() {
-        //Arrange
 
+        //Arrange
         DirectoryService directory = new DirectoryService();
         IllegalArgumentException ex1 = null;
         Node correctStructure = new Node("name", "/.");
 
         //Act
-
         try {
             correctStructure = directory.getDirectoryStructure("/blednasciezka", ".*");
         } catch (IllegalArgumentException e) {
@@ -60,7 +59,6 @@ public class DirectoryServiceTest {
         }
 
         //Assert
-
         assertNotNull(ex1);
     }
 

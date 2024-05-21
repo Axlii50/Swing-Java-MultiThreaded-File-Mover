@@ -33,7 +33,6 @@ public class NodeTest {
         String childpath = child.getPath();
 
         //Assert
-
         assertEquals("mainNode", mainName);
         assertEquals("childNode", childName);
         assertEquals("src/test/java/additionalDirectory", mainpath);

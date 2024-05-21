@@ -39,11 +39,9 @@ public class FileService implements Runnable {
      * @param executor serwis wykonawczy do zarządzania wątkami
      */
     public FileService(Node fileStructure, String destination, ExecutorService executor){
-
         this.fileStructure = fileStructure;
         this.destination = destination;
         this.executor = executor;
-
     }
 
     /**
@@ -63,7 +61,7 @@ public class FileService implements Runnable {
         CountDownLatch latch = new CountDownLatch(1);
 
         /*
-         * Rozpoczęcie procesu kopiowania katalogu, przekazując strukturę plików, ścieżkę docelową, licznik aktywnych zadań oraz synchronizator
+         * Rozpoczęcie procesu kopiowania katalogu, przekazując strukturę plików, ścieżkę docelową, licznik aktywnych zadań oraz blokade do dalszych działań
          */
         copyDirectory(fileStructure, destination, activeTasks, latch);
 
@@ -101,9 +99,12 @@ public class FileService implements Runnable {
      * @param node węzeł katalogu do skopiowania
      * @param destinationPath ścieżka docelowa do skopiowania katalogu
      * @param activeTasks licznik aktywnych zadań
-     * @param latch synchronizator
+     * @param latch blokada
      */
     private void copyDirectory(Node node, String destinationPath, AtomicInteger activeTasks, CountDownLatch latch) {
+        /*
+         Tworzenie folderu dla rodzica
+         */
         createDirectory(destinationPath);
 
         /*

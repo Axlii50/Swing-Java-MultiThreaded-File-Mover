@@ -25,8 +25,8 @@ public class ThreadServiceTest {
      */
     @Test
     public void copyFilesTest() {
-        //Arrange
 
+        //Arrange
         ThreadService thread = new ThreadService(5);
         Node structure = new Node("default", "src/test/java/testDirectory");
         String newDirectory = "src/test/java/additionalDirectory";
@@ -34,8 +34,8 @@ public class ThreadServiceTest {
         DirectoryService directory = new DirectoryService();
         IllegalArgumentException ex1 = null;
         Node newStruct = new Node("new", "/.");
-        //Act
 
+        //Act
         thread.CopyFiles(structure, newDirectory);
 
         try {
@@ -45,7 +45,6 @@ public class ThreadServiceTest {
         }
 
         //Assert
-
         assertEquals(structure.getChildren().size(), newStruct.getChildren().size());
         assertEquals(newStruct.getPath(), newDirectory.replace("/", "\\")); //podmiana ze względu na interpretowanie ścieżki podawanej w stringu
         assertNull(ex1);

@@ -36,30 +36,6 @@ public class ThreadService {
     public void CopyFiles(Node fileStructure, String destination) {
         executorService.execute(new FileService(fileStructure, destination, this.executorService));
     }
-
-    /**
-     * Zamknięcie serwisu wątków i czekanie na zakończenie wszystkich zadań
-     */
-    public void Shutdown() {
-        try {
-
-            /*
-             * Rozpoczęcie procesu zamykania wątków
-             */
-            executorService.shutdown();
-
-            /*
-             * Oczekiwanie na zakończenie wszystkikch zadań
-             */
-            executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS);
-        } catch (InterruptedException e) {
-
-            /*
-             * Obsługiwanie wyjątku przerwania
-             */
-            e.printStackTrace();
-        }
-    }
 }
 
 
