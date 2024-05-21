@@ -1,15 +1,15 @@
 /**
- * Pakiet okna UI
+ * Pakiet testów
  * <p>
- * Pakiet odpowiadający za okno UI
+ * Pakiet odpowiadający za testy
  * </p>
  *
  * <h2>Kluczowe klasy</h2>
  * <ul>
  *
  * <li>{@link tests.DirectoryServiceTest} - testy operacji na katalogach </li>
- * <li>{@link tests.NodeTest} - tworzenie głównego okna aplikacji </li>
- * <li>{@link tests.ThreadServiceTest} - tworzenie głównego okna aplikacji </li>
+ * <li>{@link tests.NodeTest} - testy operacji na węzłach </li>
+ * <li>{@link tests.ThreadServiceTest} - testy kopiowania </li>
  *
  * </ul>
  *
