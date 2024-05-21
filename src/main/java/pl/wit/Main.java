@@ -2,6 +2,7 @@ package pl.wit;
 
 import pl.wit.Windows.MainWindow;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,10 +39,14 @@ public class Main {
                     threadService.CopyFiles(structure, Destination);
                 }catch(IllegalArgumentException exp) {
                     window.setErrorLabelString(exp.getMessage());
+                    window.setErrorLabelColor(Color.RED);
                     window.setErrorLabelVisible(true);
+                    return;
                 }
 
-                threadService.Shutdown();
+                window.setErrorLabelString("Program skonczył kopiować");
+                window.setErrorLabelColor(Color.GREEN);
+                window.setErrorLabelVisible(true);
             }
         };
     }
