@@ -54,8 +54,17 @@ public class Node {
         return path;
     }
 }
-
+/**
+ * Klasa reprezentująca liść drzewa katalogów, który nie ma potomnych
+ */
 class Leaf extends Node {
+
+    /**
+     * Konstruktor tworzący liść
+     *
+     * @param name nazwa liścia
+     * @param path ścieżka do liścia
+     */
     public Leaf(String name, String path) {
         super(name, path);
     }
