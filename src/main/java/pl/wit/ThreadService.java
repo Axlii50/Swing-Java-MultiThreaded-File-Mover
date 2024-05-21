@@ -1,28 +1,57 @@
 package pl.wit;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Klasa zarządzająca wyjątkami dla procesu kopiowania plików
+ */
 public class ThreadService {
+
+    /**
+     * Obiekt do zarządzania zadaniami
+     */
     private final ExecutorService executorService;
 
+    /**
+     * Konstruktor tworzący serwis wątków z określoną maksymalną liczbą wątków
+     * @param maxThreadsUsage maksymalna liczba wątków do wykorzystania
+     */
     public ThreadService(int maxThreadsUsage) {
         executorService = Executors.newFixedThreadPool(maxThreadsUsage);
     }
 
+    /**
+     * Rozpoczęcie procesu kopiowania plików zgodnie z podaną strukturą plików
+     *
+     * @param fileStructure struktura plików do skopiowania
+     * @param destination ścieżka docelowa do kopiowania plików
+     */
     public void CopyFiles(Node fileStructure, String destination) {
         executorService.execute(new FileService(fileStructure, destination, this.executorService));
     }
 
+    /**
+     * Zamknięcie serwisu wątków i czekanie na zakończenie wszystkich zadań
+     */
     public void Shutdown() {
         try {
-            executorService.shutdown(); // Rozpocznij zamykanie wątków
+
+            /**
+             * Rozpoczęcie procesu zamykania wątków
+             */
+            executorService.shutdown();
+
+            /**
+             * Oczekiwanie na zakończenie wszystkikch zadań
+             */
             executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
+
+            /**
+             * Obsługiwanie wyjątku przerwania
+             */
             e.printStackTrace();
         }
     }
