@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Klasa testowa dla ThreadService
  */
-class ThreadServiceTest {
+public class ThreadServiceTest {
 
     /**
      * Testowanie metody CopyFiles w klasie ThreadService

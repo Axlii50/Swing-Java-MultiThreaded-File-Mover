@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Klasa testowa dla Node
  */
-class NodeTest {
+public class NodeTest {
 
     /**
      * Testowanie działania całej klasy Node
      */
     @Test
-    void wholeNodeTest() {
+    public void wholeNodeTest() {
         //Arrange
         Node main = new Node("mainNode", "src/test/java/additionalDirectory");
         Node child = new Node("childNode", "src/test/java/testDirectory");
