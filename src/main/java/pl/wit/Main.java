@@ -2,6 +2,7 @@ package pl.wit;
 
 import pl.wit.Windows.MainWindow;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
