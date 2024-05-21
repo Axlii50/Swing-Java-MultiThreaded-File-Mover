@@ -3,8 +3,17 @@ package pl.wit;
 import java.io.File;
 import java.util.regex.Pattern;
 
+/**
+ *
+ */
 public class DirectoryService {
-
+    /**
+     *
+     * @param path
+     * @param regex
+     * @return
+     * @throws IllegalArgumentException
+     */
     public Node getDirectoryStructure(String path, String regex) throws IllegalArgumentException {
         File folder = new File(path);
         if (!folder.exists() || !folder.isDirectory()) {
