@@ -42,14 +42,29 @@ public class Node {
         children.add(child);
     }
 
+    /**
+     * Pobieranie nazwy węzła
+     *
+     * @return nazwa węzła
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Pobieranie listy dzieci tego węzła
+     *
+     * @return Lista dzieci węzła
+     */
     public List<Node> getChildren() {
         return children;
     }
 
+    /**
+     * Pobieranie ścieżki do węzła
+     *
+     * @return ścieżka do węzła
+     */
     public String getPath() {
         return path;
     }
