@@ -7,7 +7,7 @@
  * <h2>Kluczowe klasy</h2>
  * <ul>
  *
- * <li>{@link tests.DirectoryServiceTest} - tworzenie głównego okna aplikacji </li>
+ * <li>{@link tests.DirectoryServiceTest} - testy operacji na katalogach </li>
  * <li>{@link tests.NodeTest} - tworzenie głównego okna aplikacji </li>
  * <li>{@link tests.ThreadServiceTest} - tworzenie głównego okna aplikacji </li>
  *

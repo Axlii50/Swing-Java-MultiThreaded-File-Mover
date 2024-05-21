@@ -1,6 +1,6 @@
 package pl.wit;
 
-import pl.wit.Windows.MainWindow;
+import pl.wit.windows.MainWindow;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -16,7 +16,7 @@ public class ThreadServiceTest {
      * Testowanie metody CopyFiles w klasie ThreadService
      */
     @Test
-    public void CopyFilestest() {
+    public void copyFilesTest() {
         //Arrange
 
         ThreadService thread = new ThreadService(5);

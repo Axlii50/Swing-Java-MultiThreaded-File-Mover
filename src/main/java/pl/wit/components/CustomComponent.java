@@ -1,4 +1,4 @@
-package pl.wit.Components;
+package pl.wit.components;
 
 import java.awt.*;
 

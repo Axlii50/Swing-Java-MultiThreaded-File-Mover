@@ -1,8 +1,8 @@
-package pl.wit.Windows;
+package pl.wit.windows;
 
-import pl.wit.Components.ButtonComponent;
-import pl.wit.Components.LabelComponent;
-import pl.wit.Components.TextBoxComponent;
+import pl.wit.components.ButtonComponent;
+import pl.wit.components.LabelComponent;
+import pl.wit.components.TextBoxComponent;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

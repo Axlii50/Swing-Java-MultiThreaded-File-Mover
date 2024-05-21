@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class NodeTest {
 
     /**
-     * Testowanie działania całej klasy Node
+     * Testowanie dodawania dzieci do węzła
      */
     @Test
     public void wholeNodeTest() {
@@ -29,10 +29,10 @@ public class NodeTest {
 
         //Assert
 
-        assertSame("mainNode", mainName);
-        assertSame("childNode", childName);
-        assertSame("src/test/java/additionalDirectory", mainpath);
-        assertSame("src/test/java/testDirectory", childpath);
-        assertSame(main.getChildren().getFirst(), child);
+        assertEquals("mainNode", mainName);
+        assertEquals("childNode", childName);
+        assertEquals("src/test/java/additionalDirectory", mainpath);
+        assertEquals("src/test/java/testDirectory", childpath);
+        assertEquals(main.getChildren().getFirst(), child);
     }
 }
