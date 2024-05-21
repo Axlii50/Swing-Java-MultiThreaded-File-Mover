@@ -1,14 +1,18 @@
 /**
- * This package contains utility classes for processing data.
+ * Pakiet komponentów UI
  * <p>
  * The classes in this package provide various utility methods for
  * manipulating and analyzing data structures such as lists, sets,
  * and maps.
  * </p>
  *
- * <h2>Key Classes</h2>
+ * <h2>Kluczowe klasy</h2>
  * <ul>
- * <li>{@link pl.wit.Components.ButtonComponent} - package komponentów.</li>
+ *
+ * <li>{@link pl.wit.Components.ButtonComponent} - tworzenie niestandardowych przycisków </li>
+ *  <li>{@link pl.wit.Components.CustomComponent} - pakiet komponentów UI</li>
+ *  <li>{@link pl.wit.Components.LabelComponent} - pakiet komponentów UI</li>
+ *  <li>{@link pl.wit.Components.TextBoxComponent} - pakiet komponentów UI</li>
  * </ul>
  *
  * @since 1.0
