@@ -19,6 +19,12 @@ import java.awt.event.ActionListener;
 public class Main {
 
     /**
+     * Konstruktor bezprametrowy
+     */
+    public Main() {
+    }
+
+    /**
      * Ścieżka źródłowa do kopiowania
      */
     private static String Source = null;

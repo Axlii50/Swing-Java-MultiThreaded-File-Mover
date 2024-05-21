@@ -36,63 +36,55 @@ public class MainWindow extends JFrame {
     private ButtonComponent startButtonComponent;
 
     /**
-     * Pobieranie komponentu etykiety błędu
+     * Ustawianie widoczności etykiety błędu
      *
-     * @return komponent etykiety błędu
+     * @param errorLabelVisible true, jeśli etykieta błędu ma być widoczna; false w przeciwnym razie
      */
-    public LabelComponent getErrorLabelComponent() {
-        return errorLabelComponent;
-    }
-
-    /**
-     * Pobieranie komponentu przycisku wyboru folderu docelowego
-     *
-     * @return komponent przycisku wyboru folderu docelowego
-     */
-    public ButtonComponent getDestinationButtonComponent() {
-        return destinationButtonComponent;
-    }
-
-    public LabelComponent getDestinationPathLabelComponent() {
-        return destinationPathLabelComponent;
-    }
-
-    public ButtonComponent getSourceButtonComponent() {
-        return sourceButtonComponent;
-    }
-
-    public LabelComponent getSourcePathLabelComponent() {
-        return sourcePathLabelComponent;
-    }
-
-    public TextBoxComponent getFilterTextBoxComponent() {
-        return filterTextBoxComponent;
-    }
-
-    public ButtonComponent getStartButtonComponent() {
-        return startButtonComponent;
-    }
-
     public void setErrorLabelVisible(boolean errorLabelVisible) {
         errorLabelComponent.getLabel().setVisible(errorLabelVisible);
     }
 
+    /**
+     * Pobieranie ścieżki folderu źródłowego jako ciąg znaków
+     *
+     * @return ścieżka folderu źródłowego
+     */
     public String getSourcePathString() {
         return sourcePathLabelComponent.getLabel().getText();
     }
 
+    /**
+     * Pobieranie ścieżki folderu docelowego jako ciąg znaków
+     *
+     * @return ścieżka folderu docelowego
+     */
     public String getDestinationPathString() {
         return destinationPathLabelComponent.getLabel().getText();
     }
 
+    /**
+     * Pobieranie wyrażenia regularnego filtru maski
+     *
+     * @return wyrażenie regularne filtru maski
+     */
     public String getRegexExpression() {
         return filterTextBoxComponent.getTextbox().getText();
     }
 
+    /**
+     * Ustawienie tekstu etykiety błędu.
+     *
+     * @param str tekst etykiety błędu
+     */
     public void setErrorLabelString(String str) {
         errorLabelComponent.getLabel().setText(str);
     }
 
+    /**
+     * Ustawienie koloru tekstu etykiety błędu
+     *
+     * @param color kolor tekstu etykiety błędu
+     */
     public void setErrorLabelColor(Color color) {
         errorLabelComponent.getLabel().setForeground(color);
     }
@@ -115,6 +107,9 @@ public class MainWindow extends JFrame {
         this.setVisible(true); // make frame visible
     }
 
+    /**
+     * Inicjujowanie paneli w oknie
+     */
     private void init() {
         sourcePanelInit();
         destinationPanelInit();
@@ -124,6 +119,9 @@ public class MainWindow extends JFrame {
         mainPanelInit();
     }
 
+    /**
+     * Inicjowanie głównego panelu i dodanie do niego innych paneli
+     */
     private void mainPanelInit() {
         JPanel panel = new JPanel();
         panel.setBackground(Color.WHITE);
@@ -137,6 +135,9 @@ public class MainWindow extends JFrame {
         panel.add(startPanel);
     }
 
+    /**
+     * Inicjowanie panela źródłowego
+     */
     private void sourcePanelInit() {
         sourcePanel = new JPanel();
         sourcePanel.setBackground(Color.WHITE);
@@ -154,10 +155,18 @@ public class MainWindow extends JFrame {
         sourceButtonComponent.getButton().addActionListener(filePathActionListener(sourcePathLabelComponent));
     }
 
+    /**
+     * Ustawienie ActionListener dla przycisku wyboru folderu źródłowego
+     *
+     * @param actionListener ActionListener do ustawienia
+     */
     public void setSourceButtonActionListener(ActionListener actionListener) {
         sourceButtonComponent.getButton().addActionListener(actionListener);
     }
 
+    /**
+     * Inicjowanie panelu docelowego
+     */
     private void destinationPanelInit() {
         destinationPanel = new JPanel();
         destinationPanel.setBackground(Color.WHITE);
@@ -175,10 +184,18 @@ public class MainWindow extends JFrame {
         destinationButtonComponent.getButton().addActionListener(filePathActionListener(destinationPathLabelComponent));
     }
 
+    /**
+     * Ustawienie ActionListener dla przycisku wyboru folderu docelowego
+     *
+     * @param actionListener ActionListener do ustawienia
+     */
     public void setDestinationButtonActionListener(ActionListener actionListener) {
         destinationButtonComponent.getButton().addActionListener(actionListener);
     }
 
+    /**
+     * Inicjujowanie panelu filtra maski
+     */
     private void maskFilterPanelInit() {
         maskFilterPanel = new JPanel();
         maskFilterPanel.setBackground(Color.WHITE);
@@ -192,7 +209,9 @@ public class MainWindow extends JFrame {
         maskFilterPanel.add(filterTextBoxComponent.createTextBox(".*"));
     }
 
-
+    /**
+     * Inicjowanie panelu błędów
+     */
     private void errorPanelInit() {
         errorPanel = new JPanel();
         errorPanel.setBackground(Color.WHITE);
@@ -206,6 +225,9 @@ public class MainWindow extends JFrame {
         errorLabelComponent.getLabel().setVisible(false);
     }
 
+    /**
+     * Inicjujowanie panelu uruchamiania procesu kopiowania
+     */
     private void startPanelInit() {
         startPanel = new JPanel();
         startPanel.setBackground(Color.WHITE);
@@ -217,10 +239,21 @@ public class MainWindow extends JFrame {
         startPanel.add(startButtonComponent.createButton("Start"));
     }
 
+    /**
+     * Ustawienie ActionListener dla przycisku uruchomienia kopiowania
+     *
+     * @param actionListener ActionListener do ustawienia
+     */
     public void setStartButtonActionListener(ActionListener actionListener) {
         startButtonComponent.getButton().addActionListener(actionListener);
     }
 
+    /**
+     * Utworzenie ActionListener dla przycisków wyboru folderu, który otwiera okno dialogowe do wyboru folderu.
+     *
+     * @param labelPathComponent komponent etykiety, na którym zostanie ustawiona wybrana ścieżka
+     * @return ActionListener do ustawienia na przycisku
+     */
     private ActionListener filePathActionListener(LabelComponent labelPathComponent) {
         return new ActionListener() {
             @Override
