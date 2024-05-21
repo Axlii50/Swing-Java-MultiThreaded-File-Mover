@@ -19,12 +19,13 @@ public class ThreadService {
     }
 
     public void Shutdown() {
-        executorService.shutdown(); // Rozpocznij zamykanie wątków
         try {
             executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        executorService.shutdown(); // Rozpocznij zamykanie wątków
     }
 }
 

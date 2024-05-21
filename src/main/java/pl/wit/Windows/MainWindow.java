@@ -175,6 +175,10 @@ public class MainWindow extends JFrame {
         errorLabelComponent.getLabel().setText(str);
     }
 
+    public void setErrorLabelColor(Color color) {
+        errorLabelComponent.getLabel().setForeground(color);
+    }
+
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
         this.setSize(300, 465); // sets dimensions of frame
@@ -318,6 +322,7 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFileChooser chooser = new JFileChooser();
                 chooser.setDialogTitle("Wybierz folder");
+
                 chooser.setFileSystemView(FileSystemView.getFileSystemView());
                 chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
