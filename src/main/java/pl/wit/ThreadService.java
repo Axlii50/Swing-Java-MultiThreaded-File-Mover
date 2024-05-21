@@ -25,8 +25,6 @@ public class ThreadService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 }
 
