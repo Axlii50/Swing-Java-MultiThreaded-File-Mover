@@ -21,7 +21,6 @@ public class MainWindow extends JFrame {
     private JPanel sourcePanel;
     private JPanel destinationPanel;
     private JPanel maskFilterPanel;
-    private JPanel infoPanel;
     private JPanel startPanel;
     private JPanel errorPanel;
 
@@ -36,10 +35,6 @@ public class MainWindow extends JFrame {
     private LabelComponent filterLabelComponent;
     private TextBoxComponent filterTextBoxComponent;
 
-    private LabelComponent filesToCopyLabel;
-    private LabelComponent filesFoundLabel;
-    private LabelComponent filesSizeLabel;
-
     private LabelComponent errorLabelComponent;
 
     private ButtonComponent startButtonComponent;
@@ -48,80 +43,28 @@ public class MainWindow extends JFrame {
         return errorLabelComponent;
     }
 
-    public void setErrorLabelComponent(LabelComponent errorLabelComponent) {
-        this.errorLabelComponent = errorLabelComponent;
-    }
-
     public ButtonComponent getDestinationButtonComponent() {
         return destinationButtonComponent;
-    }
-
-    public void setDestinationButtonComponent(ButtonComponent destinationButtonComponent) {
-        this.destinationButtonComponent = destinationButtonComponent;
     }
 
     public LabelComponent getDestinationPathLabelComponent() {
         return destinationPathLabelComponent;
     }
 
-    public void setDestinationPathLabelComponent(LabelComponent destinationPathLabelComponent) {
-        this.destinationPathLabelComponent = destinationPathLabelComponent;
-    }
-
     public ButtonComponent getSourceButtonComponent() {
         return sourceButtonComponent;
-    }
-
-    public void setSourceButtonComponent(ButtonComponent sourceButtonComponent) {
-        this.sourceButtonComponent = sourceButtonComponent;
     }
 
     public LabelComponent getSourcePathLabelComponent() {
         return sourcePathLabelComponent;
     }
 
-    public void setSourcePathLabelComponent(LabelComponent sourcePathLabelComponent) {
-        this.sourcePathLabelComponent = sourcePathLabelComponent;
-    }
-
     public TextBoxComponent getFilterTextBoxComponent() {
         return filterTextBoxComponent;
     }
 
-    public void setFilterTextBoxComponent(TextBoxComponent filterTextBoxComponent) {
-        this.filterTextBoxComponent = filterTextBoxComponent;
-    }
-
-    public LabelComponent getFilesToCopyLabel() {
-        return filesToCopyLabel;
-    }
-
-    public void setFilesToCopyLabel(LabelComponent filesToCopyLabel) {
-        this.filesToCopyLabel = filesToCopyLabel;
-    }
-
-    public LabelComponent getFilesFoundLabel() {
-        return filesFoundLabel;
-    }
-
-    public void setFilesFoundLabel(LabelComponent filesFoundLabel) {
-        this.filesFoundLabel = filesFoundLabel;
-    }
-
-    public LabelComponent getFilesSizeLabel() {
-        return filesSizeLabel;
-    }
-
-    public void setFilesSizeLabel(LabelComponent filesSizeLabel) {
-        this.filesSizeLabel = filesSizeLabel;
-    }
-
     public ButtonComponent getStartButtonComponent() {
         return startButtonComponent;
-    }
-
-    public void setStartButtonComponent(ButtonComponent startButtonComponent) {
-        this.startButtonComponent = startButtonComponent;
     }
 
     public void setErrorLabelVisible(boolean errorLabelVisible) {
@@ -140,41 +83,6 @@ public class MainWindow extends JFrame {
         return filterTextBoxComponent.getTextbox().getText();
     }
 
-    public String getFilesToCopyLabelString() {
-        return filesToCopyLabel.getLabel().getText();
-    }
-
-    public String getFilesFoundLabelString() {
-        return filesFoundLabel.getLabel().getText();
-    }
-
-    public String getFilesSizeLabelString() {
-        return filesSizeLabel.getLabel().getText();
-    }
-
-    public String getErrorLabelString() {
-        return errorLabelComponent.getLabel().getText();
-    }
-
-    /**
-     *
-     * Default: Strings:
-     * filesToCopy: Files To Copy: 0
-     * filesFound: Files Found: 0
-     * filesSize: Files size: 0
-     */
-    public void setFilesToCopyLabelString(String str) {
-        filesToCopyLabel.getLabel().setText(str);
-    }
-
-    public void setFilesFoundLabelString(String str) {
-        filesFoundLabel.getLabel().setText(str);
-    }
-
-    public void setFilesSizeLabelString(String str) {
-        filesSizeLabel.getLabel().setText(str);
-    }
-
     public void setErrorLabelString(String str) {
         errorLabelComponent.getLabel().setText(str);
     }
@@ -185,7 +93,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
-        this.setSize(300, 465); // sets dimensions of frame
+        this.setSize(300, 375); // sets dimensions of frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit out of application
         this.setResizable(false); // prevent frame from being resized
         this.setLayout(new BorderLayout());
@@ -201,7 +109,6 @@ public class MainWindow extends JFrame {
         sourcePanelInit();
         destinationPanelInit();
         maskFilterPanelInit();
-        infoPanelInit();
         errorPanelInit();
         startPanelInit();
         mainPanelInit();
@@ -216,7 +123,6 @@ public class MainWindow extends JFrame {
         panel.add(sourcePanel);
         panel.add(destinationPanel);
         panel.add(maskFilterPanel);
-        panel.add(infoPanel);
         panel.add(errorPanel);
         panel.add(startPanel);
     }
@@ -266,30 +172,16 @@ public class MainWindow extends JFrame {
     private void maskFilterPanelInit() {
         maskFilterPanel = new JPanel();
         maskFilterPanel.setBackground(Color.WHITE);
-        maskFilterPanel.setPreferredSize(new Dimension(300, 50));
+        maskFilterPanel.setPreferredSize(new Dimension(300, 30));
         maskFilterPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        filterLabelComponent = new LabelComponent(new Dimension(new Dimension(120, 30)), "filterLabel");
-        filterTextBoxComponent = new TextBoxComponent(new Dimension(140, 30), "filterTextBox");
+        filterLabelComponent = new LabelComponent(new Dimension(new Dimension(120, 20)), "filterLabel");
+        filterTextBoxComponent = new TextBoxComponent(new Dimension(140, 20), "filterTextBox");
 
         maskFilterPanel.add(filterLabelComponent.createLabel("Mask Filter (regex)"));
         maskFilterPanel.add(filterTextBoxComponent.createTextBox(".*"));
     }
 
-    private void infoPanelInit() {
-        infoPanel = new JPanel();
-        infoPanel.setBackground(Color.WHITE);
-        infoPanel.setPreferredSize(new Dimension(300, 70));
-        infoPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-
-        filesToCopyLabel = new LabelComponent(new Dimension(new Dimension(140, 30)), "filesToCopyLabel");
-        filesFoundLabel = new LabelComponent(new Dimension(new Dimension(140, 30)), "filesFoundLabel");
-        filesSizeLabel = new LabelComponent(new Dimension(new Dimension(140, 30)), "filesSizeLabel");
-
-        infoPanel.add(filesToCopyLabel.createLabel("Files To Copy: 0"));
-        infoPanel.add(filesFoundLabel.createLabel("Files Found: 0"));
-        infoPanel.add(filesSizeLabel.createLabel("Files Size: 0"));
-    }
 
     private void errorPanelInit() {
         errorPanel = new JPanel();
@@ -298,7 +190,6 @@ public class MainWindow extends JFrame {
         errorPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         errorLabelComponent = new LabelComponent(new Dimension(new Dimension(285, 25)), "errorLabel");
-
 
         errorPanel.add(errorLabelComponent.createLabel("Error"));
         errorLabelComponent.getLabel().setForeground(Color.RED);
