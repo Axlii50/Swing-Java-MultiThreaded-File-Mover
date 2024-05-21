@@ -2,6 +2,7 @@ package pl.wit;
 
 import pl.wit.Windows.MainWindow;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -80,9 +81,6 @@ public class Main {
              * @param e Obiekt zdarzenia akcji
              */
             public void actionPerformed(ActionEvent e) {
-                /**
-                 * Pobieranie ścieżki źródłowej, docelowej oraz wyrażenie regularne z interfejsu użytkownika
-                 */
                 Source = window.getSourcePathString();
                 Destination = window.getDestinationPathString();
                 Regex = window.getRegexExpression();
@@ -103,12 +101,14 @@ public class Main {
                      * Wyświetlanie komunikatu o błędzie użytkownika
                      */
                     window.setErrorLabelString(exp.getMessage());
+                    window.setErrorLabelColor(Color.RED);
                     window.setErrorLabelVisible(true);
+                    return;
                 }
-                /**
-                 * Zamknięcie serwisu wątków po zakończeniu procesu kopiowania
-                 */
-                threadService.Shutdown();
+
+                window.setErrorLabelString("Program skonczył kopiować");
+                window.setErrorLabelColor(Color.GREEN);
+                window.setErrorLabelVisible(true);
             }
         };
     }
