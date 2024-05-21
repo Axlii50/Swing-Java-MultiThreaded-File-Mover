@@ -121,12 +121,26 @@ public class FileService implements Runnable {
              */
             executor.execute(() -> {
                 try {
+
+                    /**
+                     * Sprawdzanie czy dziecko jest liściem (plikiem) i nie ma potomków
+                     * Kopiowanie pliku do nowej ścieżki
+                     */
                     if (child instanceof Leaf && child.getChildren().isEmpty()) {
                         copyFile(child.getPath(), newDestinationPath);
                     } else {
+
+                        /**
+                         * Jeżeli dziecko jest katalogiem wywołanie rekurencyjne metody do kopiowania katalogu.
+                         */
                         copyDirectory(child, newDestinationPath, activeTasks, latch);
                     }
                 } finally {
+
+                    /**
+                     * Zmniejszenie liczby aktywnych zadań
+                     * Jeżeli licznik aktywnych zadań wynosi 0, nastepuje zwolnienie blokady
+                     */
                     if (activeTasks.decrementAndGet() == 0) {
                         latch.countDown();
                     }
@@ -134,11 +148,18 @@ public class FileService implements Runnable {
             });
         }
 
+        /**
+         * Jeżeli wszystkie zadania zostały zakończone, nastepuje zwolnienie blokady
+         */
         if (activeTasks.decrementAndGet() == 0) {
             latch.countDown();
         }
     }
 
+    /**
+     * Utworzenie katalogu na podstawie poddanej ścieżki
+     * @param path ścieżka katalogu
+     */
     private void createDirectory(String path) {
         try {
             Files.createDirectories(Paths.get(path));
@@ -147,6 +168,12 @@ public class FileService implements Runnable {
         }
     }
 
+    /**
+     *  Kopiowanie pliku z jednej ścieżki do drugiej
+     *
+     * @param filePath ścieżka źródłowa pliku
+     * @param destinationPath ścieżka docelowa pliku
+     */
     private void copyFile(String filePath, String destinationPath) {
         try {
             Files.copy(Paths.get(filePath), Paths.get(destinationPath));
