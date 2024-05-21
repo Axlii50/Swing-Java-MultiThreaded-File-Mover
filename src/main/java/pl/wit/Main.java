@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
  * Zarządza głównym oknem, wątkami i obsługuje interakcję użytkownika z zadaniami kopiowanie pliku
  *
  * @author Jakub Stegienko
+ * @author Maciej Nojszewski
  * @version 1.0
  * @since 2024-05-21
  */

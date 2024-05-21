@@ -6,6 +6,10 @@ import java.util.List;
 
 /**
  * Klasa reprezentująca rozgałęzienia drzewa katalogów
+ *
+ * @author Jakub Stegienko
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class Node {
     /**

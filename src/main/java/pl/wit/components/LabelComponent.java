@@ -6,6 +6,11 @@ import java.awt.*;
 /**
  * Klasa LabelComponent rozszerzająca klasę CustomComponent i
  * służąca do tworzenia niestandardowych etykiet w aplikacji
+ *
+ * @author Maciej Nojszewski
+ * @author Adam Bartos
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class LabelComponent extends CustomComponent {
     private JLabel label;

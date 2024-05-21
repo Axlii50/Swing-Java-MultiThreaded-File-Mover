@@ -15,6 +15,12 @@ import java.io.File;
 /**
  * Klasa MainWindow odpowiada za główne okno aplikacji, w której użytkownik może wybrać
  * źródłowy folder, docelowy folder, ustawić filtr maski oraz uruchomić proces kopiowania plików
+ *
+ * @author Jakub Stegienko
+ * @author Maciej Nojszewski
+ * @author Adam Bartos
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class MainWindow extends JFrame {
     private JPanel sourcePanel;

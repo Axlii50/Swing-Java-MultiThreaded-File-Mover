@@ -7,6 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Klasa testowa dla Node
+ *
+ * @author Damian Dziedzic
+ * @author Adam Bartos
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class NodeTest {
 

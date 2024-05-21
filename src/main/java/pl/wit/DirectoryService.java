@@ -5,6 +5,11 @@ import java.util.regex.Pattern;
 
 /**
  * Klasa zarządzająca strukturą katalogów
+ *
+ * @author Jakub Stegienko
+ * @author Adam Bartos
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class DirectoryService {
     /**
@@ -56,7 +61,7 @@ public class DirectoryService {
      *
      * @param parent węzeł rodzica, do którego dodawane są dzieci
      * @param folder katalog do przetworzenia
-     * @param regex wyrażenie regularne do filtrowania plików
+     * @param regex  wyrażenie regularne do filtrowania plików
      * @throws IllegalArgumentException rzucenie wyjątku jeżeli nie ma plików w katalogu
      */
     public void addDirectoryToTree(Node parent, File folder, String regex) throws IllegalArgumentException {

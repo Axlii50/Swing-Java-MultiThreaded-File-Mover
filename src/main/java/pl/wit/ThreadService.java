@@ -6,6 +6,10 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Klasa zarządzająca wyjątkami dla procesu kopiowania plików
+ *
+ * @author Jakub Stegienko
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class ThreadService {
 
@@ -38,18 +42,18 @@ public class ThreadService {
     public void Shutdown() {
         try {
 
-            /**
+            /*
              * Rozpoczęcie procesu zamykania wątków
              */
             executorService.shutdown();
 
-            /**
+            /*
              * Oczekiwanie na zakończenie wszystkikch zadań
              */
             executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
 
-            /**
+            /*
              * Obsługiwanie wyjątku przerwania
              */
             e.printStackTrace();

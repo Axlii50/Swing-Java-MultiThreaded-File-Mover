@@ -6,6 +6,11 @@ import java.awt.*;
 /**
  * Klasa TextBoxComponent rozszerzająca klasę CustomComponent
  * służąca do tworzenia niestandardowych pól tekstowych w aplikacji
+ *
+ * @author Maciej Nojszewski
+ * @author Adam Bartos
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class TextBoxComponent extends CustomComponent {
     private JTextField textBox;

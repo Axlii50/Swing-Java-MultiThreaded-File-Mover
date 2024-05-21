@@ -9,6 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Klasa testowa dla ThreadService
+ *
+ * @author Damian Dziedzic
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class ThreadServiceTest {
 

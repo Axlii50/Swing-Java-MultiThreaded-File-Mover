@@ -6,6 +6,11 @@ import java.awt.*;
 /**
  * Klasa ButtonComponent rozszerzająca klasę CustomComponent i
  * służąca do tworzenia niestandardowych przycisków w aplikacji.
+ *
+ * @author Maciej Nojszewski
+ * @author Adam Bartos
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class ButtonComponent extends CustomComponent {
     private JButton button;

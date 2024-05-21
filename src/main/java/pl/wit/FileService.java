@@ -10,6 +10,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Klasa odpowiedzialna za kopiowanie plików i katalogów
+ *
+ *
+ * @author Jakub Stegienko
+ * @version 1.0
+ * @since 2024-05-21
  */
 public class FileService implements Runnable {
 
@@ -47,43 +52,43 @@ public class FileService implements Runnable {
     @Override
     public void run() {
 
-        /**
+        /*
          * Licznik aktywnych zadań
          */
         AtomicInteger activeTasks = new AtomicInteger(1);
 
-        /**
+        /*
          * Synchronizator pozwalający na czekanie na zakończenie wszystkich zadań
          */
         CountDownLatch latch = new CountDownLatch(1);
 
-        /**
+        /*
          * Rozpoczęcie procesu kopiowania katalogu, przekazując strukturę plików, ścieżkę docelową, licznik aktywnych zadań oraz synchronizator
          */
         copyDirectory(fileStructure, destination, activeTasks, latch);
 
         try {
-            /**
+            /*
              * Czekanie na zakończenie wszystkich zadań
              */
             latch.await();
         } catch (InterruptedException e) {
-            /**
+            /*
              * Obsługiwanie przerwania oczekiwania na zakończenie zadań
              */
             throw new RuntimeException(e);
         }
-        /**
+        /*
          * Zamykanie wykonawcy, aby nie przyjmował nowych zadań
          */
         executor.shutdown();
         try {
-            /**
+            /*
              * Oczekiwanie na zakończenie wszystkich aktywnych zadań wykonywanych przez wykonawcę
              */
             executor.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
-    /**
+    /*
      * Obsługiwanie przerwania oczekiwania
      */
             throw new RuntimeException(e);
@@ -101,28 +106,28 @@ public class FileService implements Runnable {
     private void copyDirectory(Node node, String destinationPath, AtomicInteger activeTasks, CountDownLatch latch) {
         createDirectory(destinationPath);
 
-        /**
+        /*
          * Iteracja po każdym dziecku rodzica
          */
         for (Node child : node.getChildren()) {
 
-            /**
+            /*
              * Utworzenie ścieżki dla nowego elementu bazując na jego nazwie
              */
             String newDestinationPath = destinationPath + "\\" + child.getName();
 
-            /**
+            /*
              * Zwiększenie liczby aktywnych zadań
              */
             activeTasks.incrementAndGet();
 
-            /**
+            /*
              * Startowanie nowego zadania do wykonania
              */
             executor.execute(() -> {
                 try {
 
-                    /**
+                    /*
                      * Sprawdzanie czy dziecko jest liściem (plikiem) i nie ma potomków
                      * Kopiowanie pliku do nowej ścieżki
                      */
@@ -130,14 +135,14 @@ public class FileService implements Runnable {
                         copyFile(child.getPath(), newDestinationPath);
                     } else {
 
-                        /**
+                        /*
                          * Jeżeli dziecko jest katalogiem wywołanie rekurencyjne metody do kopiowania katalogu.
                          */
                         copyDirectory(child, newDestinationPath, activeTasks, latch);
                     }
                 } finally {
 
-                    /**
+                    /*
                      * Zmniejszenie liczby aktywnych zadań
                      * Jeżeli licznik aktywnych zadań wynosi 0, nastepuje zwolnienie blokady
                      */
@@ -148,7 +153,7 @@ public class FileService implements Runnable {
             });
         }
 
-        /**
+        /*
          * Jeżeli wszystkie zadania zostały zakończone, nastepuje zwolnienie blokady
          */
         if (activeTasks.decrementAndGet() == 0) {
