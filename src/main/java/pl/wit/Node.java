@@ -54,6 +54,7 @@ public class Node {
         return path;
     }
 }
+
 /**
  * Klasa reprezentująca liść drzewa katalogów, który nie ma potomnych
  */
@@ -69,8 +70,13 @@ class Leaf extends Node {
         super(name, path);
     }
 
+    /**
+     * Pobieranie listy dzieci danego liścia
+     *
+     * @return pusta lista, ponieważ liść nie ma dzieci
+     */
     @Override
     public List<Node> getChildren() {
-        return Collections.emptyList(); // Liście nie mają potomnych
+        return Collections.emptyList();
     }
 }
