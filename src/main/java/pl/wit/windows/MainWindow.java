@@ -162,15 +162,6 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     * Ustawienie ActionListener dla przycisku wyboru folderu źródłowego
-     *
-     * @param actionListener ActionListener do ustawienia
-     */
-    public void setSourceButtonActionListener(ActionListener actionListener) {
-        sourceButtonComponent.getButton().addActionListener(actionListener);
-    }
-
-    /**
      * Inicjowanie panelu docelowego
      */
     private void destinationPanelInit() {
@@ -188,15 +179,6 @@ public class MainWindow extends JFrame {
         destinationPanel.add(destinationPathLabelComponent.createLabel("Destination Path..."));
 
         destinationButtonComponent.getButton().addActionListener(filePathActionListener(destinationPathLabelComponent));
-    }
-
-    /**
-     * Ustawienie ActionListener dla przycisku wyboru folderu docelowego
-     *
-     * @param actionListener ActionListener do ustawienia
-     */
-    public void setDestinationButtonActionListener(ActionListener actionListener) {
-        destinationButtonComponent.getButton().addActionListener(actionListener);
     }
 
     /**

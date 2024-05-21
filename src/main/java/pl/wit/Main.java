@@ -57,17 +57,17 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        /**
+        /*
          * Inicjalizacja serwisu wątków z liczbą dostępnych procesorów
          */
         threadService = new ThreadService(Runtime.getRuntime().availableProcessors());
 
-        /**
+        /*
          * Inicjalizacja głównego okna
          */
         window = new MainWindow();
 
-        /**
+        /*
          * Nasłuchiowanie akcji dla przycisku Start
          */
         window.setStartButtonActionListener(StartButtonListener());
@@ -82,7 +82,7 @@ public class Main {
         return new ActionListener() {
             @Override
 
-            /**
+            /*
              * Metoda wywoływana po naciśnięciu przycisku start
              *
              * @param e Obiekt zdarzenia akcji
@@ -94,18 +94,18 @@ public class Main {
 
                 try {
 
-                    /**
+                    /*
                      * Pobieranie struktury folderów na podstawie ścieżki źródłowej i wyrażenia regularnego
                      */
                     Node structure = GetFolderStructure();
 
-                    /**
+                    /*
                      * Proces kopiowania
                      */
                     threadService.CopyFiles(structure, Destination);
                 } catch (IllegalArgumentException exp) {
 
-                    /**
+                    /*
                      * Wyświetlanie komunikatu o błędzie użytkownika
                      */
                     window.setErrorLabelString(exp.getMessage());
@@ -114,7 +114,7 @@ public class Main {
                     return;
                 }
 
-                /**
+                /*
                  * Wyświetlanie komunikatu o skończeniu kopiowania
                  */
                 window.setErrorLabelString("Program skonczył kopiować");

@@ -47,12 +47,5 @@ public class ButtonComponent extends CustomComponent {
         return this.button;
     }
 
-    /**
-     * Ustawia przycisk
-     *
-     * @param button obiekt JButton do ustawienia
-     */
-    public void setButton(JButton button) {
-        this.button = button;
-    }
+
 }

@@ -164,4 +164,10 @@ public class DirectoryServiceTest {
         assertNull(ex1);
         assertNotEquals(childrensize, parent1.getChildren().size());
     }
+    
+    /**
+     * Konstruktor bezparametrowy
+     */
+    public DirectoryServiceTest() {
+    }
 }

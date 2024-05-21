@@ -46,13 +46,4 @@ public class LabelComponent extends CustomComponent {
     public JLabel getLabel() {
         return this.label;
     }
-
-    /**
-     * Ustawianie etykiety
-     *
-     * @param label Obiekt JLabel do ustawienia
-     */
-    public void setLabel(JLabel label) {
-        this.label = label;
-    }
 }

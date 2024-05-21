@@ -40,4 +40,10 @@ public class NodeTest {
         assertEquals("src/test/java/testDirectory", childpath);
         assertEquals(main.getChildren().getFirst(), child);
     }
+
+    /**
+     * Konstruktor bezparametrowy
+     */
+    public NodeTest() {
+    }
 }

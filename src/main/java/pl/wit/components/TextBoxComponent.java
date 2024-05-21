@@ -46,12 +46,4 @@ public class TextBoxComponent extends CustomComponent {
         return this.textBox;
     }
 
-    /**
-     * Ustawienie pola tekstowego
-     *
-     * @param textbox obiekt JTextField do ustawienia.
-     */
-    public void setTextbox(JTextField textbox) {
-        this.textBox = textbox;
-    }
 }
