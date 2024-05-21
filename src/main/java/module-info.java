@@ -1,0 +1,17 @@
+/**
+ * Moduł główny aplikacji do zarządzania strukturą katalogów i GUI do wyboru ścieżek oraz uruchamiania procesu kopiowania plików.
+ */
+module pl.wit {
+    requires java.desktop; // Potrzebne do korzystania z GUI (Swing)
+    requires org.junit.jupiter.api;
+    exports pl.wit; // Eksportowanie głównego pakietu aplikacji
+    exports pl.wit.windows; // Eksportowanie pakietu zawierającego główne okno aplikacji
+    exports pl.wit.components; // Eksportowanie pakietu zawierającego komponenty GUI
+
+    // Opcjonalnie, jeśli masz inne moduły do testów lub inne zależności, dodaj je tutaj:
+    // requires org.junit.jupiter.api; // jeśli używasz JUnit do testowania
+
+    opens pl.wit; // Otwiera pakiet dla refleksji, jeśli jest to potrzebne
+    opens pl.wit.windows; // Otwiera pakiet dla refleksji, jeśli jest to potrzebne
+    opens pl.wit.components; // Otwiera pakiet dla refleksji, jeśli jest to potrzebne
+}

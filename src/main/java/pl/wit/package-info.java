@@ -1,7 +1,7 @@
 /**
- * Pakiet komponentów UI
+ * Pakiet komponentów aplikacji
  * <p>
- * Pakiet odpowiadający za tworzenie komponentów UI
+ * Główny pakiet komponentów aplikacji
  * </p>
  *
  * <h2>Kluczowe klasy</h2>
