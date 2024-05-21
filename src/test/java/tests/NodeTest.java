@@ -5,14 +5,19 @@ import pl.wit.Node;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Klasa testowa dla Node
+ */
 class NodeTest {
 
+    /**
+     * Testowanie działania całej klasy Node
+     */
     @Test
-    void wholeNodeTest()
-    {
+    void wholeNodeTest() {
         //Arrange
-        Node main = new Node("mainNode","src/test/java/additionalDirectory");
-        Node child = new Node("childNode","src/test/java/testDirectory");
+        Node main = new Node("mainNode", "src/test/java/additionalDirectory");
+        Node child = new Node("childNode", "src/test/java/testDirectory");
 
         //Act
 
@@ -24,10 +29,10 @@ class NodeTest {
 
         //Assert
 
-        assertSame("mainNode",mainName);
-        assertSame("childNode",childName);
-        assertSame("src/test/java/additionalDirectory",mainpath);
-        assertSame("src/test/java/testDirectory",childpath);
-        assertSame(main.getChildren().getFirst(),child);
+        assertSame("mainNode", mainName);
+        assertSame("childNode", childName);
+        assertSame("src/test/java/additionalDirectory", mainpath);
+        assertSame("src/test/java/testDirectory", childpath);
+        assertSame(main.getChildren().getFirst(), child);
     }
 }
