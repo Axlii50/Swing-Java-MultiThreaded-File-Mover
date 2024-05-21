@@ -3,7 +3,7 @@
  */
 module pl.wit {
     requires java.desktop; // Potrzebne do korzystania z GUI (Swing)
-    requires org.junit.jupiter.api;
+   requires org.junit.jupiter.api;
     exports pl.wit; // Eksportowanie głównego pakietu aplikacji
     exports pl.wit.windows; // Eksportowanie pakietu zawierającego główne okno aplikacji
     exports pl.wit.components; // Eksportowanie pakietu zawierającego komponenty GUI
