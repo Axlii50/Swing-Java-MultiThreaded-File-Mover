@@ -1,9 +1,7 @@
 /**
  * Pakiet komponentów UI
  * <p>
- * The classes in this package provide various utility methods for
- * manipulating and analyzing data structures such as lists, sets,
- * and maps.
+ * Pakiet odpowiadający za tworzenie komponentów UI
  * </p>
  *
  * <h2>Kluczowe klasy</h2>

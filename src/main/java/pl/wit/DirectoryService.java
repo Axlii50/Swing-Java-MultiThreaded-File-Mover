@@ -7,6 +7,11 @@ import java.util.regex.Pattern;
  * Klasa zarządzająca strukturą katalogów
  */
 public class DirectoryService {
+    /**
+     * Konstruktor bezparametrowy
+     */
+    public DirectoryService() {
+    }
 
     /**
      * Pobieranie struktury katalogów na podstawie ścieżki i wyrażenia regularnego

@@ -17,32 +17,38 @@ import java.io.File;
  * źródłowy folder, docelowy folder, ustawić filtr maski oraz uruchomić proces kopiowania plików
  */
 public class MainWindow extends JFrame {
-    private JPanel panel;
     private JPanel sourcePanel;
     private JPanel destinationPanel;
     private JPanel maskFilterPanel;
     private JPanel startPanel;
     private JPanel errorPanel;
 
-    private LabelComponent sourceLabelComponent;
     private ButtonComponent sourceButtonComponent;
     private LabelComponent sourcePathLabelComponent;
 
-    private LabelComponent destinationLabelComponent;
     private ButtonComponent destinationButtonComponent;
     private LabelComponent destinationPathLabelComponent;
 
-    private LabelComponent filterLabelComponent;
     private TextBoxComponent filterTextBoxComponent;
 
     private LabelComponent errorLabelComponent;
 
     private ButtonComponent startButtonComponent;
 
+    /**
+     * Pobieranie komponentu etykiety błędu
+     *
+     * @return komponent etykiety błędu
+     */
     public LabelComponent getErrorLabelComponent() {
         return errorLabelComponent;
     }
 
+    /**
+     * Pobieranie komponentu przycisku wyboru folderu docelowego
+     *
+     * @return komponent przycisku wyboru folderu docelowego
+     */
     public ButtonComponent getDestinationButtonComponent() {
         return destinationButtonComponent;
     }
@@ -91,6 +97,10 @@ public class MainWindow extends JFrame {
         errorLabelComponent.getLabel().setForeground(color);
     }
 
+    /**
+     * Klasa MainWindow odpowiada za główne okno aplikacji, w której użytkownik może wybrać
+     * źródłowy folder, docelowy folder, ustawić filtr maski oraz uruchomić proces kopiowania plików
+     */
     public MainWindow() {
         this.setTitle("Java"); // sets title of frame
         this.setSize(300, 375); // sets dimensions of frame
@@ -115,7 +125,7 @@ public class MainWindow extends JFrame {
     }
 
     private void mainPanelInit() {
-        panel = new JPanel();
+        JPanel panel = new JPanel();
         panel.setBackground(Color.WHITE);
         this.add(panel, BorderLayout.WEST);
         panel.setPreferredSize(new Dimension(300, 400));
@@ -133,7 +143,7 @@ public class MainWindow extends JFrame {
         sourcePanel.setPreferredSize(new Dimension(300, 100));
         sourcePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        sourceLabelComponent = new LabelComponent(new Dimension(new Dimension(125, 30)), "sourceLabel");
+        LabelComponent sourceLabelComponent = new LabelComponent(new Dimension(new Dimension(125, 30)), "sourceLabel");
         sourceButtonComponent = new ButtonComponent(new Dimension(125, 30), "sourceButton");
         sourcePathLabelComponent = new LabelComponent(new Dimension(280, 40), "sourcePathLabel");
 
@@ -154,7 +164,7 @@ public class MainWindow extends JFrame {
         destinationPanel.setPreferredSize(new Dimension(300, 100));
         destinationPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        destinationLabelComponent = new LabelComponent(new Dimension(new Dimension(125, 30)), "destinationLabel");
+        LabelComponent destinationLabelComponent = new LabelComponent(new Dimension(new Dimension(125, 30)), "destinationLabel");
         destinationButtonComponent = new ButtonComponent(new Dimension(125, 30), "destinationButton");
         destinationPathLabelComponent = new LabelComponent(new Dimension(280, 40), "destinationPathLabel");
 
@@ -175,7 +185,7 @@ public class MainWindow extends JFrame {
         maskFilterPanel.setPreferredSize(new Dimension(300, 30));
         maskFilterPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        filterLabelComponent = new LabelComponent(new Dimension(new Dimension(120, 20)), "filterLabel");
+        LabelComponent filterLabelComponent = new LabelComponent(new Dimension(new Dimension(120, 20)), "filterLabel");
         filterTextBoxComponent = new TextBoxComponent(new Dimension(140, 20), "filterTextBox");
 
         maskFilterPanel.add(filterLabelComponent.createLabel("Mask Filter (regex)"));
