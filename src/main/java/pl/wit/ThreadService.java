@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Klasa zarządzająca wyjątkami dla procesu kopiowania plików
+ * Klasa zarządzająca wątkami dla procesu kopiowania plików
  *
  * @author Jakub Stegienko
  * @version 1.0

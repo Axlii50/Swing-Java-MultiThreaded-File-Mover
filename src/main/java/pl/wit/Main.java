@@ -76,7 +76,7 @@ public class Main {
     /**
      * Metoda zwracająca wydarzenie dotyczące startu
      *
-     * @return zwracanie wydarzenia staru
+     * @return zwracanie wydarzenia startu
      */
     private static ActionListener StartButtonListener() {
         return new ActionListener() {
